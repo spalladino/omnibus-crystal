@@ -60,5 +60,5 @@ build do
   erb source: "crystal.erb",
       dest: "#{install_dir}/bin/crystal",
       mode: 0755,
-      vars: { install_dir: install_dir }
+      vars: { install_dir: install_dir, realpath_cmd: (mac_os_x? ? 'realpath' : 'readlink -f') }
 end
